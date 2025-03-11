@@ -20,6 +20,12 @@ defmodule CurrencyServerWeb.Router do
     get "/", PageController, :home
   end
 
+  scope "/api", CurrencyServerWeb do
+    pipe_through :api
+
+    get "/currency", CurrencyController, :index
+  end
+
   # Other scopes may use custom stacks.
   # scope "/api", CurrencyServerWeb do
   #   pipe_through :api
